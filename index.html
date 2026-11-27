@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Toolkit</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="container">
+      <span class="header-tag">ALL-IN-ONE CAMPUS UTILITY</span>
+      <h1>Student Toolkit</h1>
+      <p>대학생의 과제, 팀플, 일상 관리를 한곳에서 해결하는 올인원 도구 모음</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="toolkit-grid">
+
+      <!-- 1. 글자 수 계산기 -->
+      <article class="tool-card" id="card-char-counter">
+        <div class="card-header">
+          <div class="card-title-row">
+            <span class="card-badge">01</span>
+            <h2>글자 수 계산기</h2>
+          </div>
+          <p>자기소개서 및 과제 분량을 실시간으로 확인합니다.</p>
+        </div>
+        <div class="card-body">
+          <textarea id="char-input" rows="4" placeholder="텍스트를 입력하세요..."></textarea>
+          <div class="checkbox-group">
+            <label>
+              <input type="checkbox" id="char-exclude-space" />
+              공백 제외
+            </label>
+          </div>
+          <div class="button-row">
+            <button type="button" id="char-calc-btn" class="btn-primary">계산하기</button>
+            <button type="button" id="char-clear-btn" class="btn-secondary">초기화</button>
+          </div>
+        </div>
+        <div class="result-box" id="char-result">
+          총 0자
+        </div>
+      </article>
+
+      <!-- 2. D-day 계산기 -->
+      <article class="tool-card" id="card-dday">
+        <div class="card-header">
+          <div class="card-title-row">
+            <span class="card-badge">02</span>
+            <h2>D-day 계산기</h2>
+          </div>
+          <p>시험, 과제 마감일 등 중요한 일정까지 남은 날짜를 계산합니다.</p>
+        </div>
+        <div class="card-body">
+          <div class="input-group">
+            <label for="dday-title">일정 이름</label>
+            <input type="text" id="dday-title" placeholder="예: 중간고사, 팀플 발표" />
+          </div>
+          <div class="input-group">
+            <label for="dday-date">목표 날짜</label>
+            <input type="date" id="dday-date" />
+          </div>
+          <div class="checkbox-group">
+            <label>
+              <input type="checkbox" id="dday-include-today" />
+              오늘부터 1일로 계산
+            </label>
+          </div>
+          <div class="button-row">
+            <button type="button" id="dday-calc-btn" class="btn-primary">D-day 확인</button>
+            <button type="button" id="dday-clear-btn" class="btn-secondary">초기화</button>
+          </div>
+        </div>
+        <div class="result-box" id="dday-result">
+          날짜를 선택해 주세요.
+        </div>
+      </article>
+
+      <!-- 3. 랜덤 순서 정하기 -->
+      <article class="tool-card" id="card-random-order">
+        <div class="card-header">
+          <div class="card-title-row">
+            <span class="card-badge">03</span>
+            <h2>랜덤 순서 정하기</h2>
+          </div>
+          <p>발표 순서나 조별 활동 순서를 공정하게 무작위로 정합니다.</p>
+        </div>
+        <div class="card-body">
+          <textarea id="order-names-input" rows="4" placeholder="한 줄에 한 명씩 이름을 입력하세요.&#10;예:&#10;김서진&#10;이지은&#10;박민수"></textarea>
+          <button type="button" id="order-shuffle-btn" class="btn-primary">순서 정하기</button>
+        </div>
+        <div class="result-box" id="order-result">
+          1. - / 2. - / 3. -
+        </div>
+      </article>
+
+      <!-- 4. 팀 구성하기 -->
+      <article class="tool-card" id="card-team-builder">
+        <div class="card-header">
+          <div class="card-title-row">
+            <span class="card-badge">04</span>
+            <h2>팀 구성하기</h2>
+          </div>
+          <p>전체 인원을 입력한 팀 수에 맞게 무작위로 배정합니다.</p>
+        </div>
+        <div class="card-body">
+          <textarea id="team-members-input" rows="3" placeholder="참여자 이름을 입력하세요 (쉼표 또는 줄바꿈 구분)"></textarea>
+          <div class="input-group">
+            <label for="team-count-select">생성할 팀 수</label>
+            <select id="team-count-select">
+              <option value="2">2팀</option>
+              <option value="3">3팀</option>
+              <option value="4">4팀</option>
+              <option value="5">5팀</option>
+              <option value="6">6팀</option>
+            </select>
+          </div>
+          <button type="button" id="team-build-btn" class="btn-primary">팀 배정하기</button>
+        </div>
+        <div class="result-box" id="team-result">
+          팀 배정 결과가 여기에 표시됩니다.
+        </div>
+      </article>
+
+      <!-- 5. 발표 시간 계산기 -->
+      <article class="tool-card" id="card-speech-time">
+        <div class="card-header">
+          <div class="card-title-row">
+            <span class="card-badge">05</span>
+            <h2>발표 시간 계산기</h2>
+          </div>
+          <p>대본 글자 수와 말하기 속도를 기준으로 예상 소요 시간을 계산합니다.</p>
+        </div>
+        <div class="card-body">
+          <textarea id="speech-script-input" rows="3" placeholder="발표 대본을 붙여넣으세요..."></textarea>
+          <div class="radio-group">
+            <span>말하기 속도:</span>
+            <label><input type="radio" name="speech-speed" id="speed-slow" value="slow" /> 느림</label>
+            <label><input type="radio" name="speech-speed" id="speed-normal" value="normal" checked /> 보통</label>
+            <label><input type="radio" name="speech-speed" id="speed-fast" value="fast" /> 빠름</label>
+          </div>
+          <button type="button" id="speech-calc-btn" class="btn-primary">소요 시간 계산</button>
+        </div>
+        <div class="result-box" id="speech-result">
+          예상 발표 시간: 0분 0초
+        </div>
+      </article>
+
+      <!-- 6. 스톱워치 -->
+      <article class="tool-card" id="card-stopwatch">
+        <div class="card-header">
+          <div class="card-title-row">
+            <span class="card-badge">06</span>
+            <h2>스톱워치</h2>
+          </div>
+          <p>발표 연습 시간이나 집중 공부 시간을 측정합니다.</p>
+        </div>
+        <div class="card-body">
+          <div class="stopwatch-display" id="stopwatch-display">
+            00:00.00
+          </div>
+          <div class="button-row">
+            <button type="button" id="stopwatch-start-btn" class="btn-primary">시작</button>
+            <button type="button" id="stopwatch-lap-btn" class="btn-secondary">구간 기록</button>
+            <button type="button" id="stopwatch-reset-btn" class="btn-secondary">초기화</button>
+          </div>
+        </div>
+        <div class="result-box" id="stopwatch-laps">
+          구간 기록이 없습니다.
+        </div>
+      </article>
+
+      <!-- 7. BMI 계산기 -->
+      <article class="tool-card" id="card-bmi">
+        <div class="card-header">
+          <div class="card-title-row">
+            <span class="card-badge">07</span>
+            <h2>BMI 계산기</h2>
+          </div>
+          <p>신장과 체중을 입력해 체질량지수와 건강 상태를 확인합니다.</p>
+        </div>
+        <div class="card-body">
+          <div class="input-row">
+            <div class="input-group">
+              <label for="bmi-height">신장 (cm)</label>
+              <input type="number" id="bmi-height" placeholder="170" />
+            </div>
+            <div class="input-group">
+              <label for="bmi-weight">체중 (kg)</label>
+              <input type="number" id="bmi-weight" placeholder="65" />
+            </div>
+          </div>
+          <button type="button" id="bmi-calc-btn" class="btn-primary">BMI 계산하기</button>
+        </div>
+        <div class="result-box" id="bmi-result">
+          BMI 수치: - (상태: -)
+        </div>
+      </article>
+
+      <!-- 8. 준비물 체크리스트 -->
+      <article class="tool-card" id="card-checklist">
+        <div class="card-header">
+          <div class="card-title-row">
+            <span class="card-badge">08</span>
+            <h2>준비물 체크리스트</h2>
+          </div>
+          <p>등교 및 시험 당일 챙겨야 할 필수 물품을 점검합니다.</p>
+        </div>
+        <div class="card-body">
+          <div class="input-row">
+            <input type="text" id="checklist-item-input" placeholder="새 준비물 추가..." />
+            <button type="button" id="checklist-add-btn" class="btn-primary">추가</button>
+          </div>
+          <ul class="checklist-items" id="checklist-list">
+            <li>
+              <label>
+                <input type="checkbox" id="check-item-1" />
+                <span>노트북 및 충전기</span>
+              </label>
+              <button type="button" class="btn-delete" aria-label="항목 삭제">삭제</button>
+            </li>
+            <li>
+              <label>
+                <input type="checkbox" id="check-item-2" />
+                <span>학생증 / 신분증</span>
+              </label>
+              <button type="button" class="btn-delete" aria-label="항목 삭제">삭제</button>
+            </li>
+            <li>
+              <label>
+                <input type="checkbox" id="check-item-3" />
+                <span>필기구 및 전공 서적</span>
+              </label>
+              <button type="button" class="btn-delete" aria-label="항목 삭제">삭제</button>
+            </li>
+          </ul>
+        </div>
+        <div class="result-box" id="checklist-result">
+          완료: 0 / 3개
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <div class="container">
+      <p>&copy; 2026 Student Toolkit. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
